@@ -32,44 +32,41 @@ const Dashboard = ({ darkMode, toggleDark }) => {
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-[#0e0c14] text-white' : 'bg-gray-50 text-gray-900'}`}>
       <Navbar darkMode={darkMode} toggleDark={toggleDark} activeTab={activeTab} setActiveTab={setActiveTab} />
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <Sidebar profile={profile} darkMode={darkMode} />
-        <main className="flex-1 p-8 flex flex-col gap-8">
+        <main className="flex-1 p-4 md:p-8 flex flex-col gap-8">
 
           {activeTab === 'Overview' && (
             <>
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <StatCard label="Public repos" value={profile.public_repos} darkMode={darkMode} />
                 <StatCard label="Followers" value={profile.followers} darkMode={darkMode} />
                 <StatCard label="Following" value={profile.following} darkMode={darkMode} />
                 <StatCard label="Total repos" value={filteredRepos.length} darkMode={darkMode} />
               </div>
-
               <div>
                 <h2 className={`text-xs font-medium uppercase tracking-widest mb-4 ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
                   Repositories
                 </h2>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {filteredRepos.slice(0, 4).map(repo => (
                     <RepoCard key={repo.id} repo={repo} darkMode={darkMode} />
                   ))}
                 </div>
               </div>
-
               <LanguageBreakdown repos={filteredRepos} darkMode={darkMode} />
             </>
           )}
 
           {activeTab === 'Repositories' && (
             <>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <h2 className={`text-xs font-medium uppercase tracking-widest ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
                   All repositories
                 </h2>
                 <div className="flex gap-2 flex-wrap">
                   {languages.map(lang => (
-                    <button key={lang}
-                      onClick={() => setFilterLang(lang)}
+                    <button key={lang} onClick={() => setFilterLang(lang)}
                       className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
                         filterLang === lang
                           ? 'bg-purple-700 text-white'
@@ -82,8 +79,7 @@ const Dashboard = ({ darkMode, toggleDark }) => {
                   ))}
                 </div>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {displayRepos.map(repo => (
                   <RepoCard key={repo.id} repo={repo} darkMode={darkMode} />
                 ))}
@@ -99,7 +95,7 @@ const Dashboard = ({ darkMode, toggleDark }) => {
               {[...filteredRepos]
                 .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
                 .map(repo => (
-                  <div key={repo.id} className={`border rounded-xl p-4 flex items-center justify-between gap-4 ${
+                  <div key={repo.id} className={`border rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
                     darkMode ? 'bg-[#13101f] border-[#2a2440]' : 'bg-white border-gray-200'
                   }`}>
                     <div className="flex flex-col gap-1 min-w-0">
@@ -107,7 +103,7 @@ const Dashboard = ({ darkMode, toggleDark }) => {
                         className="text-sm font-medium text-purple-400 hover:underline truncate">
                         {repo.name}
                       </a>
-                      <span className={`text-xs truncate ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
+                      <span className={`text-xs ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
                         {repo.description || 'No description'}
                       </span>
                     </div>
@@ -123,8 +119,6 @@ const Dashboard = ({ darkMode, toggleDark }) => {
 
           {activeTab === 'About' && (
             <div className="max-w-2xl flex flex-col gap-6">
-
-              {/* Bio */}
               <div className={`rounded-xl p-6 border ${darkMode ? 'bg-[#13101f] border-[#2a2440]' : 'bg-white border-gray-200'}`}>
                 <h2 className={`text-lg font-medium mb-2 ${darkMode ? 'text-[#e2dff8]' : 'text-gray-800'}`}>
                   Hey, I'm Kritika 👋
@@ -136,7 +130,6 @@ const Dashboard = ({ darkMode, toggleDark }) => {
                 </p>
               </div>
 
-              {/* Currently working on */}
               <div className={`rounded-xl p-6 border ${darkMode ? 'bg-[#13101f] border-[#2a2440]' : 'bg-white border-gray-200'}`}>
                 <h3 className={`text-xs font-medium uppercase tracking-widest mb-4 ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
                   Currently working on
@@ -155,7 +148,6 @@ const Dashboard = ({ darkMode, toggleDark }) => {
                 </div>
               </div>
 
-              {/* Learning roadmap */}
               <div className={`rounded-xl p-6 border ${darkMode ? 'bg-[#13101f] border-[#2a2440]' : 'bg-white border-gray-200'}`}>
                 <h3 className={`text-xs font-medium uppercase tracking-widest mb-4 ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
                   Learning roadmap
@@ -174,9 +166,9 @@ const Dashboard = ({ darkMode, toggleDark }) => {
                   ))}
                 </div>
               </div>
-
             </div>
           )}
+
         </main>
       </div>
     </div>

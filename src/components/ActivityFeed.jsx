@@ -23,16 +23,15 @@ const LanguageBreakdown = ({ repos, darkMode }) => {
       <h2 className={`text-xs font-medium uppercase tracking-widest mb-4 ${darkMode ? 'text-[#6b6485]' : 'text-gray-400'}`}>
         Language breakdown
       </h2>
-      <div className={`border rounded-xl p-5 flex flex-col gap-4 ${darkMode ? 'bg-[#13101f] border-[#2a2440]' : 'bg-white border-gray-200'}`}>
+      <div className={`border rounded-xl p-5 flex flex-col gap-4 ${
+        darkMode ? 'bg-[#13101f] border-[#2a2440]' : 'bg-white border-gray-200'
+      }`}>
         <div className="flex h-2 rounded-full overflow-hidden">
           {sorted.map(([lang, count]) => (
-            <div
-              key={lang}
-              style={{
-                width: `${Math.round((count / total) * 100)}%`,
-                background: langColors[lang] || '#9f7aea'
-              }}
-            />
+            <div key={lang} style={{
+              width: `${Math.round((count / total) * 100)}%`,
+              background: langColors[lang] || '#9f7aea'
+            }} />
           ))}
         </div>
         <div className="flex flex-wrap gap-4">
