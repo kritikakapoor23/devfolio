@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Dashboard from './pages/Dashboard'
+import Portfolio from './pages/Portfolio'
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
-  return <Dashboard darkMode={darkMode} toggleDark={() => setDarkMode(!darkMode)} />
+  return <Portfolio darkMode={darkMode} toggleDark={() => setDarkMode(!darkMode)} />
 }
 
 export default App
