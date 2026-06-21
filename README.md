@@ -8,8 +8,10 @@ A personal portfolio and GitHub dashboard built with React. Showcases projects, 
 
 ## Screenshots
 
-![Hero](<img width="1175" height="785" alt="image" src="https://github.com/user-attachments/assets/ef50207c-8d21-4761-9dbb-88ca2a3974c9" />)
-![Projects](<img width="1482" height="622" alt="image" src="https://github.com/user-attachments/assets/671e2cbf-b10d-4250-8fb8-f0cb136a5d27" />)
+## Screenshots
+
+![Hero](https://github.com/user-attachments/assets/ef50207c-8d21-4761-9dbb-88ca2a3974c9)
+![Projects](https://github.com/user-attachments/assets/671e2cbf-b10d-4250-8fb8-f0cb136a5d27)
 
 ---
 
