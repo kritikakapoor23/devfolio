@@ -1,12 +1,10 @@
-# Devfolio — Personal Portfolio
+# Devfolio - Personal Portfolio
 
 A personal portfolio and GitHub dashboard built with React. Showcases projects, tech stack, and contact links — with dark / light mode and full responsiveness.
 
 **Live → [devfolio-gules.vercel.app](https://devfolio-gules.vercel.app)**
 
 ---
-
-## Screenshots
 
 ## Screenshots
 
