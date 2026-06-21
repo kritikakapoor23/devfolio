@@ -25,7 +25,7 @@ const Hero = ({ darkMode }) => {
 
   return (
     <section id="about" className={`min-h-screen flex items-center pt-14 transition-colors duration-200 ${darkMode ? 'bg-[#080b14]' : 'bg-[#fafafa]'}`}>
-      <div className="max-w-5xl mx-auto px-6 py-24 w-full">
+      <div className="max-w-5xl mx-auto px-6 py-10 w-full">
         <div className="max-w-2xl">
           <div className="flex items-center gap-3 mb-8">
             <span className={`w-2 h-2 rounded-full animate-pulse ${darkMode ? 'bg-[#6366f1]' : 'bg-indigo-500'}`} />

@@ -2,7 +2,12 @@ import { useState } from 'react'
 
 const Navbar = ({ darkMode, toggleDark }) => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const links = ['about', 'skills', 'projects', 'contact']
+  const links = [
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Contact', id: 'contact' },
+  ]
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -20,15 +25,15 @@ const Navbar = ({ darkMode, toggleDark }) => {
         <div className="hidden md:flex items-center gap-8">
           {links.map(link => (
             <button
-              key={link}
-              onClick={() => scrollTo(link)}
-              className={`font-mono text-xs transition-colors ${
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
+              className={`font-mono text-sm transition-colors ${
                 darkMode
                   ? 'text-[#6b7280] hover:text-[#e8e6f0]'
                   : 'text-gray-400 hover:text-gray-900'
               }`}
             >
-              {link}
+              {link.label}
             </button>
           ))}
         </div>
@@ -66,15 +71,15 @@ const Navbar = ({ darkMode, toggleDark }) => {
         }`}>
           {links.map(link => (
             <button
-              key={link}
-              onClick={() => scrollTo(link)}
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
               className={`font-mono text-sm text-left transition-colors ${
                 darkMode
                   ? 'text-[#6b7280] hover:text-[#e8e6f0]'
                   : 'text-gray-400 hover:text-gray-900'
               }`}
             >
-              {link}
+              {link.label}
             </button>
           ))}
         </div>
